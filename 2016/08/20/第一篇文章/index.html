@@ -84,19 +84,29 @@
 
 
 
-<meta name="description" content="jsfkhshfa
-dfgdgsagdgsgdsgsgad从这里开始read more…">
+<meta name="description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
+
+本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
+<meta property="og:title" content="关于UIStatusBar隐藏的小探究">
 <meta property="og:url" content="http://yoursite.com/2016/08/20/第一篇文章/index.html">
 <meta property="og:site_name" content="YioMidd Blog">
-<meta property="og:description" content="jsfkhshfa
-dfgdgsagdgsgdsgsgad从这里开始read more…">
-<meta property="og:updated_time" content="2016-08-20T12:15:05.000Z">
+<meta property="og:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
+
+本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-f0a06fa48f75539c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-39c98b241e57f24e.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-fc5603c26a7cfb8d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-75b1afffb08684b2.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-861575a876ab841c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-08-26T01:35:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇文章">
-<meta name="twitter:description" content="jsfkhshfa
-dfgdgsagdgsgdsgsgad从这里开始read more…">
+<meta name="twitter:title" content="关于UIStatusBar隐藏的小探究">
+<meta name="twitter:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
+
+本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -119,7 +129,7 @@ dfgdgsagdgsgdsgsgad从这里开始read more…">
 
   <link rel="canonical" href="http://yoursite.com/2016/08/20/第一篇文章/"/>
 
-  <title> 第一篇文章 | YioMidd Blog </title>
+  <title> 关于UIStatusBar隐藏的小探究 | YioMidd Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -239,7 +249,7 @@ dfgdgsagdgsgdsgsgad从这里开始read more…">
             
             
               
-                第一篇文章
+                关于UIStatusBar隐藏的小探究
               
             
           </h1>
@@ -279,8 +289,41 @@ dfgdgsagdgsgdsgsgad从这里开始read more…">
       
 
       
-        <p>jsfkhshfa</p>
-<p>d<br>fg<br>dg<br>sag<br>dg<br>sgd<br>sg<br>sgad<br>从这里开始read more…<br><a id="more"></a></p>
+           <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></div>
+
+<p>最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…</p>
+<blockquote>
+<p>本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="UIStatusBar"><a href="#UIStatusBar" class="headerlink" title="UIStatusBar"></a>UIStatusBar</h4><p>对于StatusBar，由于其特殊性，苹果对其并未像其他类一样，暴露给我们单独的<code>h</code>文件，包含各个<code>property</code>以及相关API，就只是在<code>UIApplication</code>类提供相关几个属性跟API，所以我们平时对其的操作不外乎更改<code>Style</code>或者<code>Hidden</code>属性；当然，还有横竖屏转换的问题，这里我就不另作详述了。</p>
+<h4 id="隐藏的方式"><a href="#隐藏的方式" class="headerlink" title="隐藏的方式"></a>隐藏的方式</h4><p>这里要稍微讲一下，在iOS 6的时候，我们通过修改项目<code>plist</code>文件中的<code>View controller-based status bar appearance</code> 的布尔值为<strong>No</strong>（默认为Yes），然后使用以下API来实现对statusBar的隐藏</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setStatusBarHidden:(<span class="built_in">BOOL</span>)hidden withAnimation:(<span class="built_in">UIStatusBarAnimation</span>)animation <span class="built_in">NS_DEPRECATED_IOS</span>(<span class="number">3</span>_2, <span class="number">9</span>_0, <span class="string">"Use -[UIViewController prefersStatusBarHidden]"</span>)</div></pre></td></tr></table></figure>
+<p>通常我们也是这么干的，通过配置一个Bool值参数传入方法，来实现在需要的时候对statusBar做隐藏或显示，同时也可配置是否伴随动画，类似这样：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)configeStatusBarHidden:(<span class="built_in">BOOL</span>)hidden &#123;</div><div class="line">    <span class="keyword">if</span> (hidden) &#123;</div><div class="line">        [[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarHidden:hidden withAnimation:<span class="built_in">UIStatusBarAnimationSlide</span>];</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        [[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarHidden:hidden withAnimation:<span class="built_in">UIStatusBarAnimationSlide</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+   <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-f0a06fa48f75539c.gif?imageMogr2/auto-orient/strip" alt="article1.gif"></div>
+
+<p>这种修改<code>plist</code>文件的方式在iOS7、8中也照样可用，不过在iOS9中就报了警告，详情可<a href="https://github.com/ChenYilong/iOS9AdaptationTips" target="_blank" rel="external">戳这里</a>，因此，我们应该把<code>plist</code>文件中的那个value值改为Yes。并且从上面的API可以看到，iOS9之后，这个API也就<code>DEPRECATED</code>，官方也建议我们用<code>-[UIViewController prefersStatusBarHidden]</code>来代替，可能有童鞋会说，<code>DEPRECATED</code>也可以用呀，就像项目原先支持iOS7+ 使用<code>UIAlertView</code>，后来改为支持ios8+ ，无非就多个警告而已，也没事呀. 但这里会些许不同</p>
+<blockquote>
+<p>当<code>plist</code>文件的value值改为Yes的时候，上面使用的<code>- (void)setStatusBarHidden:(BOOL)hidden withAnimation:(UIStatusBarAnimation)animation</code> 将不起任何作用，反之，<code>- (BOOL)prefersStatusBarHidden</code>也会失效；<br>使用新的API来实现隐藏的功能需求</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)prefersStatusBarHidden &#123;</div><div class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</div><div class="line">    <span class="keyword">return</span> !app.isStatusBarHidden;</div><div class="line">&#125;</div><div class="line">- (<span class="built_in">UIStatusBarAnimation</span>)preferredStatusBarUpdateAnimation &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">UIStatusBarAnimationSlide</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但使用两个API虽然可以实现隐藏功能，但我们即使设置了动画，也没看到任何动画效果，也只是闪的一下就没了<br>   <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-39c98b241e57f24e.gif?imageMogr2/auto-orient/strip" alt="article2.gif"></div></p>
+<p>那要怎样才有动画效果呢？ 其实只要你够细心，在看API文档的时候就会发现，在上面那两个API的下面，有这么个方法，<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This should be called whenever the return values for the view controller's status bar attributes have changed. If it is called from within an animation block, the changes will be animated along with the rest of the animation block.</span></div><div class="line">- (<span class="keyword">void</span>)setNeedsStatusBarAppearanceUpdate <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0) __TVOS_PROHIBITED;</div></pre></td></tr></table></figure></p>
+<p>相关的注释说的非常清晰，我们可以把这个方法放在animation block里面来达到动画效果，事不宜迟，赶紧试试<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.33</span> animations:^&#123;</div><div class="line">        [<span class="keyword">self</span> setNeedsStatusBarAppearanceUpdate];</div><div class="line">    &#125;];</div></pre></td></tr></table></figure></p>
+   <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-fc5603c26a7cfb8d.gif?imageMogr2/auto-orient/strip" alt="article3.gif"></div>
+
+<p>这样，滴滴的那个效果也就可以初步实现了，看下效果<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)jump:(<span class="built_in">UIButton</span> *)sender &#123;</div><div class="line">    sender.tag = !sender.tag;</div><div class="line">    sender.tag ? [<span class="keyword">self</span> showLeftView] : [<span class="keyword">self</span> hideLeftView];</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)showLeftView &#123;</div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.33</span> animations:^&#123;</div><div class="line">        <span class="keyword">self</span>.leftView.transform = <span class="built_in">CGAffineTransformTranslate</span>(<span class="keyword">self</span>.leftView.transform, <span class="number">200</span>, <span class="number">0</span>);</div><div class="line">        [<span class="keyword">self</span> setNeedsStatusBarAppearanceUpdate];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)hideLeftView &#123;</div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.33</span> animations:^&#123;</div><div class="line">        <span class="keyword">self</span>.leftView.transform = <span class="built_in">CGAffineTransformTranslate</span>(<span class="keyword">self</span>.leftView.transform, <span class="number">-200</span>, <span class="number">0</span>);</div><div class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line">        [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.33</span> animations:^&#123;</div><div class="line">            [<span class="keyword">self</span> setNeedsStatusBarAppearanceUpdate];</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">｝</div></pre></td></tr></table></figure></p>
+   <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-75b1afffb08684b2.gif?imageMogr2/auto-orient/strip" alt="article4.gif"></div>
+
+<p>OK啦，可以收工了！！👏👏👏 </p>
+<p>不不不，还没完呢，还有话要说：</p>
+<p><strong>文章中所截图的demo，最外层是有套了一个NavigationController的，然后通过在<em>viewDidLoad</em>设置隐藏navigationBar，因为仔细看发现滴滴应该也是隐藏了navigationBar的。其实这种需求还是比较少见的，而且也不适用于在Push界面的时候等；对了，如果你没隐藏navigationBar，会出现这样的情况:</strong></p>
+   <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-861575a876ab841c.gif?imageMogr2/auto-orient/strip" alt="article6.gif"></div>
+
+
+
+<p>最后，感谢您的阅读，若文章有描述错误，望指正，非常感谢！</p>
 
       
     </div>
@@ -398,7 +441,7 @@ dfgdgsagdgsgdsgsgad从这里开始read more…">
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIStatusBar"><span class="nav-number">1.</span> <span class="nav-text">UIStatusBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏的方式"><span class="nav-number">2.</span> <span class="nav-text">隐藏的方式</span></a></li></ol></div>
             
           </div>
         </section>
