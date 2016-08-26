@@ -84,28 +84,22 @@
 
 
 
-<meta name="description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
-
-本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
+<meta name="description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于UIStatusBar隐藏的小探究">
 <meta property="og:url" content="http://yoursite.com/2016/08/20/关于UIStatusBar隐藏的小探究/index.html">
 <meta property="og:site_name" content="YioMidd Blog">
-<meta property="og:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
-
-本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
+<meta property="og:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-f0a06fa48f75539c.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-39c98b241e57f24e.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-fc5603c26a7cfb8d.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-75b1afffb08684b2.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/935058-861575a876ab841c.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-08-26T01:35:22.000Z">
+<meta property="og:updated_time" content="2016-08-26T02:33:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于UIStatusBar隐藏的小探究">
-<meta name="twitter:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…
-
-本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈">
+<meta name="twitter:description" content="最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -292,9 +286,6 @@
            <div align="center"><br>   <img src="http://upload-images.jianshu.io/upload_images/935058-280d99388787e823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></div>
 
 <p>最近听说滴滴的折扣很给力，对于之前一直用微信叫车的我，就下了个客户端，随便玩了一下，注意到状态栏那小东西的变化，就去探究了一下，也就有了这篇文章…</p>
-<blockquote>
-<p>本人小菜鸟一只，文章也只是当作自己的笔记，并没有复杂高深的内容，大神请忽略飘过~ 哈哈</p>
-</blockquote>
 <a id="more"></a>
 <h4 id="UIStatusBar"><a href="#UIStatusBar" class="headerlink" title="UIStatusBar"></a>UIStatusBar</h4><p>对于StatusBar，由于其特殊性，苹果对其并未像其他类一样，暴露给我们单独的<code>h</code>文件，包含各个<code>property</code>以及相关API，就只是在<code>UIApplication</code>类提供相关几个属性跟API，所以我们平时对其的操作不外乎更改<code>Style</code>或者<code>Hidden</code>属性；当然，还有横竖屏转换的问题，这里我就不另作详述了。</p>
 <h4 id="隐藏的方式"><a href="#隐藏的方式" class="headerlink" title="隐藏的方式"></a>隐藏的方式</h4><p>这里要稍微讲一下，在iOS 6的时候，我们通过修改项目<code>plist</code>文件中的<code>View controller-based status bar appearance</code> 的布尔值为<strong>No</strong>（默认为Yes），然后使用以下API来实现对statusBar的隐藏</p>
